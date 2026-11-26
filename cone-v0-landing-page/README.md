@@ -27,6 +27,14 @@ npm run lint     # oxlint
 - **Contenido.** Todo el texto está en `src/content.ts`.
 - **Renders.** `src/assets/renders/*.webp` se recortaron de la maqueta y tienen el fondo
   convertido a transparencia.
+- **Giro 360° del hero.** `src/components/hero/Turntable.tsx` hace girar la tapa completa
+  de `hero-front.webp` (labio, cuerpo estriado y base) sobre su eje vertical con un shader
+  WebGL: como es un cuerpo de revolución, cada píxel se ubica en su círculo horizontal
+  (perfil de radios por altura) y se muestrea ese círculo desplazado un ángulo; luz,
+  contorno y sombra quedan fijos. El interior de la tapa en la imagen debe ser opaco. Si
+  cambia el encuadre del render, hay que volver a medir `GEOMETRY` (una exportación a mayor
+  resolución con el mismo encuadre se ajusta sola). Sin WebGL o con «reducir movimiento»
+  activado se muestra la imagen fija.
 
 ## Pendientes
 

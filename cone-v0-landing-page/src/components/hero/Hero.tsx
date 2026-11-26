@@ -5,6 +5,7 @@ import { Logo } from '../Logo'
 import { AssistantPanel } from './AssistantPanel'
 import { DeliveryCards } from './DeliveryCards'
 import s from './Hero.module.css'
+import { Turntable } from './Turntable'
 
 type ViewId = (typeof hero.views)[number]['id']
 type Mode = 'render' | 'capas' | 'malla'
@@ -156,6 +157,7 @@ export function Hero() {
               fetchPriority={key === 'f' ? 'high' : 'auto'}
               decoding="async"
             />
+            {key === 'f' && <Turntable src={placement.render.src} active={active} className={s.turntable} />}
           </figure>
         ))}
       </div>
