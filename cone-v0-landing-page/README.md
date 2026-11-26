@@ -27,14 +27,18 @@ npm run lint     # oxlint
 - **Contenido.** Todo el texto está en `src/content.ts`.
 - **Renders.** `src/assets/renders/*.webp` se recortaron de la maqueta y tienen el fondo
   convertido a transparencia.
-- **Giro 360° del hero.** `src/components/hero/Turntable.tsx` hace girar la tapa completa
-  de `hero-front.webp` (labio, cuerpo estriado y base) sobre su eje vertical con un shader
-  WebGL: como es un cuerpo de revolución, cada píxel se ubica en su círculo horizontal
-  (perfil de radios por altura) y se muestrea ese círculo desplazado un ángulo; luz,
-  contorno y sombra quedan fijos. El interior de la tapa en la imagen debe ser opaco. Si
-  cambia el encuadre del render, hay que volver a medir `GEOMETRY` (una exportación a mayor
-  resolución con el mismo encuadre se ajusta sola). Sin WebGL o con «reducir movimiento»
-  activado se muestra la imagen fija.
+- **Tapa del hero (giro 360° + inclinación por scroll).** `src/components/hero/Turntable.tsx`
+  dibuja la tapa de `hero-front.webp` con un shader WebGL. Como es un cuerpo de revolución,
+  cada píxel se ubica en su círculo horizontal (perfil de radios por altura):
+  - Giro: se muestrea ese círculo desplazado un ángulo; luz y sombra quedan fijas.
+  - Inclinación: al bajar con el scroll la cámara sube hasta 25° (`TILT_DEGREES`) y se ve la
+    cara superior, que sale de `hero-top.webp` (desenrollada del render de Proceso). Llega al
+    máximo tras `TILT_RANGE` px de diseño en escritorio y `TILT_RANGE_MOBILE` del alto del
+    viewport en móvil; `TILT_SMOOTHING` controla la inercia. Al subir se endereza.
+  - Las medidas (eje, perfiles, cara superior) están en px de `hero-front.webp`; si cambia
+    el encuadre del render hay que volver a medirlas. El interior de la tapa en la imagen
+    debe ser opaco.
+  - Sin WebGL o con «reducir movimiento» activado se muestra la imagen fija.
 
 ## Pendientes
 
