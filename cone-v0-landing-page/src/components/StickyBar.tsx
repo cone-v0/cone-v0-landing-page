@@ -1,6 +1,7 @@
 import { useEffect, useId, useState } from 'react'
 import { nav, stickyBar } from '../content'
 import { useClock } from '../hooks/useClock'
+import { Logo } from './Logo'
 import s from './StickyBar.module.css'
 
 /**
@@ -44,9 +45,8 @@ export function StickyBar() {
 
   return (
     <header className={s.bar} data-visible={shown} data-open={open} aria-label="Navegación principal">
-      <a className={s.brand} href="#inicio" onClick={() => setOpen(false)}>
-        <span className={s.mark} aria-hidden="true" />
-        <span className={s.brandName}>{stickyBar.brand}</span>
+      <a className={s.brand} href="#inicio" aria-label="CONE, inicio" onClick={() => setOpen(false)}>
+        <Logo />
       </a>
       <span className={s.tagline}>
         <span className={s.bullet} aria-hidden="true" />

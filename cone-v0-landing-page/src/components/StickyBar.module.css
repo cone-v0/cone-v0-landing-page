@@ -32,26 +32,24 @@
   background: var(--bg);
 }
 
+/* Mismo logotipo y tamaño que en la barra del hero, centrado en la barra cerrada */
 .brand {
   position: absolute;
-  top: calc(24 * var(--px));
-  left: var(--gutter);
-  display: flex;
-  align-items: center;
-  gap: calc(9 * var(--px));
+  top: calc(16 * var(--px));
+  left: calc(26 * var(--px));
+  display: block;
+  width: calc(54 * var(--px));
+  color: var(--orange);
+  transition: opacity 0.2s;
 }
 
-.mark {
-  width: calc(28 * var(--px));
-  height: calc(28 * var(--px));
-  border-radius: calc(6 * var(--px));
-  background: #22323a;
+.brand svg {
+  width: 100%;
+  height: auto;
 }
 
-.brandName {
-  font-size: max(12px, calc(15 * var(--px)));
-  font-weight: 500;
-  letter-spacing: 0.01em;
+.brand:hover {
+  opacity: 0.8;
 }
 
 .tagline,
@@ -152,23 +150,14 @@
   }
 
   .brand {
-    top: 18px;
-    gap: 10px;
-  }
-
-  .mark {
-    width: 28px;
-    height: 28px;
-    border-radius: 6px;
-  }
-
-  .brandName {
-    font-size: 15px;
+    top: 14px;
+    left: var(--gutter);
+    width: 44px;
   }
 
   .tagline {
     top: 24px;
-    left: 92px;
+    left: 88px;
     gap: 12px;
     line-height: 16px;
   }

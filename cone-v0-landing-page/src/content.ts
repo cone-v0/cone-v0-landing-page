@@ -297,7 +297,6 @@ export const footer = {
 }
 
 export const stickyBar = {
-  brand: 'CONE',
   tagline: 'Visualización 3D industrial',
   center: 'Renders y animación para manufactura',
   timezoneLabel: 'GMT-6',
