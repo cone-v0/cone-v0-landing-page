@@ -1,0 +1,210 @@
+/* Barra fija · estado 01B (maqueta: alto 208 px abierta) */
+
+.bar {
+  --h-closed: calc(76 * var(--px));
+  --h-open: calc(208 * var(--px));
+
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  max-width: calc(1920 * var(--px));
+  margin-inline: auto;
+  height: var(--h-closed);
+  background: rgb(253 253 253 / 0.92);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  box-shadow: 0 1px 0 rgb(0 0 0 / 0.05);
+  color: var(--ink-2);
+  font-size: max(11px, calc(13.4 * var(--px)));
+  font-variation-settings: var(--cut-text);
+  transform: translateY(-101%);
+  transition:
+    transform 0.55s var(--ease),
+    height 0.55s var(--ease);
+}
+
+.bar[data-visible='true'] {
+  transform: none;
+}
+
+.bar[data-open='true'] {
+  height: var(--h-open);
+  background: var(--bg);
+}
+
+.brand {
+  position: absolute;
+  top: calc(24 * var(--px));
+  left: var(--gutter);
+  display: flex;
+  align-items: center;
+  gap: calc(9 * var(--px));
+}
+
+.mark {
+  width: calc(28 * var(--px));
+  height: calc(28 * var(--px));
+  border-radius: calc(6 * var(--px));
+  background: #22323a;
+}
+
+.brandName {
+  font-size: max(12px, calc(15 * var(--px)));
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.tagline,
+.center,
+.clock {
+  position: absolute;
+  top: calc(30 * var(--px));
+  color: #888a8b;
+  line-height: calc(16 * var(--px));
+  white-space: nowrap;
+}
+
+.tagline {
+  left: calc(122 * var(--px));
+  display: flex;
+  align-items: center;
+  gap: calc(16 * var(--px));
+}
+
+.bullet {
+  width: calc(4 * var(--px));
+  height: calc(4 * var(--px));
+  min-width: 3px;
+  min-height: 3px;
+  background: #979a99;
+}
+
+.center {
+  left: calc(977 * var(--px));
+}
+
+.clock {
+  right: calc(360 * var(--px));
+  font-variant-numeric: tabular-nums;
+}
+
+.toggle {
+  position: absolute;
+  top: calc(24 * var(--px));
+  left: calc(1576 * var(--px));
+  width: calc(64 * var(--px));
+  height: calc(28 * var(--px));
+  background: #ecedef;
+  color: var(--ink-2);
+  font-size: max(11px, calc(14 * var(--px)));
+  transition:
+    height 0.55s var(--ease),
+    background-color 0.2s;
+}
+
+.toggle:hover {
+  background: #e2e4e7;
+}
+
+.bar[data-open='true'] .toggle {
+  height: calc(160 * var(--px));
+}
+
+.menu {
+  position: absolute;
+  top: calc(26 * var(--px));
+  right: calc(var(--gutter) + 1 * var(--px));
+  text-align: right;
+}
+
+.menu li {
+  opacity: 0;
+  transform: translateY(calc(-8 * var(--px)));
+  transition:
+    opacity 0.35s var(--ease),
+    transform 0.45s var(--ease);
+}
+
+.bar[data-open='true'] .menu li {
+  opacity: 1;
+  transform: none;
+}
+
+.menu a {
+  display: block;
+  color: var(--ink-2);
+  font-size: max(13px, calc(17.3 * var(--px)));
+  line-height: calc(32 * var(--px));
+  transition: color 0.2s;
+}
+
+.menu a:hover {
+  color: var(--orange);
+}
+
+/* ---------- Tablet / móvil ---------- */
+@media (max-width: 1099px) {
+  .bar {
+    --h-closed: 64px;
+    --h-open: 300px;
+    font-size: 13px;
+    transform: none;
+  }
+
+  .brand {
+    top: 18px;
+    gap: 10px;
+  }
+
+  .mark {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+  }
+
+  .brandName {
+    font-size: 15px;
+  }
+
+  .tagline {
+    top: 24px;
+    left: 92px;
+    gap: 12px;
+    line-height: 16px;
+  }
+
+  .center,
+  .clock {
+    display: none;
+  }
+
+  .toggle {
+    top: 16px;
+    left: auto;
+    right: var(--gutter);
+    width: 72px;
+    height: 32px;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  .bar[data-open='true'] .toggle {
+    height: 32px;
+  }
+
+  .menu {
+    top: 76px;
+    right: var(--gutter);
+  }
+
+  .menu a {
+    font-size: 24px;
+    line-height: 42px;
+  }
+}
+
+@media (max-width: 520px) {
+  .tagline {
+    display: none;
+  }
+}

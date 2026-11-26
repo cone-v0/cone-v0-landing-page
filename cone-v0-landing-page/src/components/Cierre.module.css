@@ -1,0 +1,80 @@
+/* 08 · CTA de cierre #cta — 1920 × 700 px de diseño */
+
+.cierre {
+  position: relative;
+  height: calc(700 * var(--px));
+}
+
+.corner {
+  position: absolute;
+  color: var(--muted-2);
+  font-family: var(--font-mono);
+  font-size: calc(10.5 * var(--px));
+  letter-spacing: 0.13em;
+  line-height: 1;
+  white-space: pre;
+}
+
+.tl,
+.bl {
+  left: var(--gutter);
+}
+
+.tr,
+.br {
+  right: calc(23 * var(--px));
+}
+
+.tl,
+.tr {
+  top: calc(31 * var(--px));
+}
+
+.bl,
+.br {
+  top: calc(659 * var(--px));
+}
+
+.image {
+  position: absolute;
+  top: calc(108 * var(--px));
+  left: calc(700 * var(--px));
+  width: calc(727 * var(--px));
+}
+
+@media (max-width: 1099px) {
+  .cierre {
+    display: grid;
+    place-items: center;
+    height: auto;
+    min-height: 420px;
+    padding: 72px var(--gutter);
+  }
+
+  .corner {
+    font-size: 10px;
+  }
+
+  .tl,
+  .tr {
+    top: 24px;
+  }
+
+  .bl,
+  .br {
+    top: auto;
+    bottom: 24px;
+  }
+
+  .tr,
+  .br {
+    right: var(--gutter);
+  }
+
+  .image {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: min(88vw, 620px);
+  }
+}

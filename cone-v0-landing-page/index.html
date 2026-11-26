@@ -1,10 +1,36 @@
 <!doctype html>
-<html lang="en">
+<html lang="es-MX">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>cone-v0-landing-page</title>
+    <title>CONE · Visualización 3D para la industria de manufactura</title>
+    <meta
+      name="description"
+      content="Convertimos tus planos en visualizaciones, animaciones y catálogos que venden. Renders fotorrealistas y animación de producto para manufactura desde Querétaro, MX."
+    />
+    <meta name="theme-color" content="#fdfdfd" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:title" content="CONE · Visualización 3D para la industria de manufactura" />
+    <meta
+      property="og:description"
+      content="Tu pieza lista para vender antes de fabricarse y sin sesión de fotos."
+    />
+    <script>
+      // Escala de diseño: 1 px de la maqueta (1920 px) = --px.
+      // Se usa el ancho útil real (sin barra de scroll) y se limita a 2400 px.
+      ;(function () {
+        var root = document.documentElement
+        function update() {
+          var width = Math.min(root.clientWidth || window.innerWidth, 2400)
+          root.style.setProperty('--px', width / 1920 + 'px')
+        }
+        update()
+        window.addEventListener('resize', update)
+        if ('ResizeObserver' in window) new ResizeObserver(update).observe(root)
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>

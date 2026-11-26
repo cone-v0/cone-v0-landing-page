@@ -1,0 +1,246 @@
+/* 04 · Caso #caso — 1920 × 1944 px de diseño */
+
+.caso {
+  position: relative;
+  height: calc(1944 * var(--px));
+}
+
+.number {
+  top: calc(24 * var(--px));
+}
+
+.title {
+  position: absolute;
+  top: calc(115 * var(--px));
+  left: calc(29 * var(--px));
+}
+
+.label {
+  position: absolute;
+  top: calc(468 * var(--px));
+  left: var(--gutter);
+}
+
+.text {
+  position: absolute;
+  top: calc(462 * var(--px));
+  left: calc(960 * var(--px));
+  width: calc(910 * var(--px));
+  color: var(--ink-2);
+  font-size: calc(30 * var(--px));
+  font-weight: 350;
+  line-height: calc(40 * var(--px));
+  letter-spacing: 0.0165em;
+}
+
+.text p + p {
+  margin-top: calc(4 * var(--px));
+}
+
+/* ---------- Vista explosionada + dial ---------- */
+
+.figure {
+  position: absolute;
+  top: calc(800 * var(--px));
+  left: calc(480 * var(--px));
+  width: calc(960 * var(--px));
+  height: calc(850 * var(--px));
+}
+
+.dial {
+  position: absolute;
+  top: calc(320 * var(--px));
+  left: 0;
+  width: calc(960 * var(--px));
+  height: calc(530 * var(--px));
+  overflow: visible;
+}
+
+.dial * {
+  vector-effect: non-scaling-stroke;
+}
+
+.dialMarks {
+  transition: transform 0.2s linear;
+}
+
+.piece {
+  position: absolute;
+  transform: translateY(calc(var(--dy, 0) * var(--px)));
+  transition: transform 0.25s linear;
+  will-change: transform;
+}
+
+.cap {
+  top: calc(15 * var(--px));
+  left: calc(235 * var(--px));
+  width: calc(512 * var(--px));
+  z-index: 3;
+}
+
+.ring1 {
+  top: calc(385 * var(--px));
+  left: calc(291 * var(--px));
+  width: calc(402 * var(--px));
+  z-index: 2;
+}
+
+.ring2 {
+  top: calc(564 * var(--px));
+  left: calc(260 * var(--px));
+  width: calc(464 * var(--px));
+  z-index: 1;
+}
+
+.dialLabel {
+  position: absolute;
+  top: calc(692 * var(--px));
+  left: 0;
+  right: 0;
+  color: var(--muted-2);
+  font-family: var(--font-mono);
+  font-size: calc(10.5 * var(--px));
+  letter-spacing: 0.14em;
+  line-height: 1;
+  text-align: center;
+  white-space: pre;
+}
+
+.spinner {
+  position: absolute;
+  top: calc(753.5 * var(--px));
+  left: calc(456 * var(--px));
+  width: calc(48 * var(--px));
+  height: calc(48 * var(--px));
+  fill: #243037;
+  animation: spin 9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- Cifras ---------- */
+
+.stats {
+  position: absolute;
+  top: calc(1577 * var(--px));
+  left: var(--gutter);
+  right: var(--gutter);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: calc(250 * var(--px));
+  border-top: 1px solid #d6d6d6;
+  border-bottom: 1px solid #d6d6d6;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: calc(87 * var(--px));
+}
+
+.stat + .stat {
+  border-left: 1px solid #d3d3d3;
+}
+
+.stat strong {
+  color: var(--ghost);
+  font-size: calc(46 * var(--px));
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.026em;
+  white-space: nowrap;
+  transition: color 0.6s var(--ease);
+}
+
+.stat span {
+  margin-top: calc(19 * var(--px));
+  color: #d0d1d2;
+  font-family: var(--font-mono);
+  font-size: calc(10.5 * var(--px));
+  letter-spacing: 0.14em;
+  line-height: 1;
+  white-space: pre;
+  transition: color 0.6s var(--ease);
+}
+
+.stat[data-active='true'] strong {
+  color: #616161;
+}
+
+.stat[data-active='true'] span {
+  color: var(--muted-2);
+}
+
+/* ---------- Tablet / móvil ---------- */
+
+@media (max-width: 1099px) {
+  .caso {
+    height: auto;
+    padding: 88px var(--gutter) 0;
+  }
+
+  .number {
+    top: 28px;
+  }
+
+  .title,
+  .label,
+  .text,
+  .figure,
+  .stats {
+    position: relative;
+    inset: auto;
+  }
+
+  .label {
+    margin-top: 40px;
+  }
+
+  .text {
+    width: auto;
+    margin-top: 20px;
+    font-size: clamp(20px, 4.6vw, 28px);
+    line-height: 1.35;
+  }
+
+  .text p + p {
+    margin-top: 8px;
+  }
+
+  /* La composición conserva sus proporciones con una escala local */
+  .figure {
+    --px: calc(min(100vw - 2 * var(--gutter), 640px) / 960);
+    margin: 48px auto 0;
+  }
+
+  .stats {
+    --px: 1px;
+    grid-template-columns: 1fr;
+    height: auto;
+    margin: 0 calc(-1 * var(--gutter));
+    padding: 0 var(--gutter);
+  }
+
+  .stat {
+    padding: 28px 0;
+  }
+
+  .stat + .stat {
+    border-left: 0;
+    border-top: 1px solid #e3e3e3;
+  }
+
+  .stat strong {
+    font-size: 40px;
+  }
+
+  .stat span {
+    margin-top: 12px;
+    font-size: 10px;
+  }
+}

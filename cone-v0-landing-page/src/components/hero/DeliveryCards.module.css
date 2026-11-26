@@ -1,0 +1,497 @@
+/* Tarjetas inferiores del hero (y 686 – 933 px de diseño) */
+
+.cards {
+  position: absolute;
+  top: calc(686 * var(--px));
+  left: calc(131 * var(--px));
+  z-index: 2;
+  display: grid;
+  grid-template-columns: calc(508 * var(--px)) calc(508 * var(--px)) calc(572 * var(--px));
+  column-gap: calc(32 * var(--px));
+}
+
+.card {
+  position: relative;
+  height: calc(248 * var(--px));
+  border: 1px solid rgb(255 255 255 / 0.85);
+  border-radius: calc(22 * var(--px));
+  box-shadow:
+    0 calc(16 * var(--px)) calc(36 * var(--px)) rgb(30 40 50 / 0.07),
+    0 calc(2 * var(--px)) calc(6 * var(--px)) rgb(30 40 50 / 0.03);
+}
+
+.insumo {
+  background: #f6f7f7;
+}
+
+.resolucion {
+  background: linear-gradient(100deg, #fbfbfb 0%, #f3f5f4 50%, #f1f3f2 100%);
+}
+
+.formato {
+  background: #fff;
+}
+
+/* ---------- Cabecera común ---------- */
+
+.head {
+  position: absolute;
+  inset: 0 0 auto;
+  height: calc(88 * var(--px));
+}
+
+.head::after {
+  content: '';
+  position: absolute;
+  left: calc(27 * var(--px));
+  right: calc(27 * var(--px));
+  bottom: 0;
+  height: 1px;
+  background: #dcdedd;
+}
+
+.formato .head::after {
+  background: #e6e7e7;
+}
+
+.title {
+  position: absolute;
+  top: calc(25 * var(--px));
+  left: calc(27 * var(--px));
+  color: #282e31;
+  font-size: calc(20.5 * var(--px));
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.004em;
+  white-space: nowrap;
+}
+
+.detail {
+  position: absolute;
+  top: calc(55 * var(--px));
+  left: calc(28 * var(--px));
+  color: #797c7e;
+  font-size: calc(13.8 * var(--px));
+  font-weight: 300;
+  font-variation-settings: var(--cut-text);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.expand {
+  position: absolute;
+  top: calc(19 * var(--px));
+  right: calc(26 * var(--px));
+  display: grid;
+  place-items: center;
+  width: calc(48 * var(--px));
+  height: calc(48 * var(--px));
+  border-radius: calc(14 * var(--px));
+  background: #fff;
+  box-shadow:
+    0 calc(6 * var(--px)) calc(16 * var(--px)) rgb(30 40 50 / 0.08),
+    0 calc(1 * var(--px)) calc(2 * var(--px)) rgb(30 40 50 / 0.04);
+  color: #2f383d;
+  transition:
+    color 0.2s,
+    transform 0.3s var(--ease);
+}
+
+.expand svg {
+  width: calc(21 * var(--px));
+  height: calc(21 * var(--px));
+}
+
+.expand:hover {
+  color: var(--orange);
+  transform: scale(1.05);
+}
+
+/* ---------- Insumo técnico ---------- */
+
+.drawing {
+  position: absolute;
+  top: calc(103 * var(--px));
+  left: calc(27 * var(--px));
+  width: calc(451 * var(--px));
+  height: calc(120 * var(--px));
+}
+
+/* ---------- Resolución ---------- */
+
+.resolution {
+  position: absolute;
+  top: calc(105 * var(--px));
+  left: calc(26 * var(--px));
+  right: calc(27 * var(--px));
+  height: calc(112 * var(--px));
+}
+
+.resCurrent {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: calc(213 * var(--px));
+  border-radius: calc(14 * var(--px));
+  background: #fbfbfb;
+  box-shadow:
+    0 calc(6 * var(--px)) calc(18 * var(--px)) rgb(30 40 50 / 0.05),
+    0 calc(1 * var(--px)) calc(2 * var(--px)) rgb(30 40 50 / 0.02);
+}
+
+.chev {
+  position: absolute;
+  top: calc(37 * var(--px));
+  display: grid;
+  place-items: center;
+  width: calc(28 * var(--px));
+  height: calc(28 * var(--px));
+  border-radius: 50%;
+  color: #ee8236;
+  transition: background-color 0.2s;
+}
+
+.chev:first-child {
+  left: calc(8 * var(--px));
+}
+
+.chev:last-child {
+  right: calc(8 * var(--px));
+}
+
+.chev:hover {
+  background: rgb(238 130 54 / 0.1);
+}
+
+.chev svg {
+  width: calc(20 * var(--px));
+  height: calc(20 * var(--px));
+}
+
+.resValue,
+.resOther {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: swap 0.45s var(--ease);
+}
+
+.resValue {
+  top: calc(26 * var(--px));
+  left: 0;
+  right: 0;
+}
+
+.resValue strong,
+.resOther strong {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.resValue strong {
+  color: #252d31;
+  font-size: calc(46 * var(--px));
+}
+
+.resValue span,
+.resOther span {
+  font-family: var(--font-mono);
+  line-height: 1;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.resValue span {
+  margin-top: calc(14 * var(--px));
+  color: #717375;
+  font-size: calc(10.5 * var(--px));
+}
+
+.resOther {
+  top: calc(28 * var(--px));
+  left: calc(290 * var(--px));
+  width: calc(120 * var(--px));
+  color: #696f74;
+  transition: color 0.2s;
+}
+
+.resOther strong {
+  font-size: calc(37 * var(--px));
+}
+
+.resOther span {
+  margin-top: calc(16 * var(--px));
+  color: #6f7376;
+  font-size: calc(10.5 * var(--px));
+}
+
+.resOther:hover strong {
+  color: #3a4246;
+}
+
+@keyframes swap {
+  from {
+    opacity: 0;
+    transform: translateY(calc(6 * var(--px)));
+  }
+}
+
+/* ---------- Formato ---------- */
+
+.formats {
+  position: absolute;
+  top: calc(100 * var(--px));
+  left: calc(28 * var(--px));
+  right: calc(28 * var(--px));
+}
+
+.format {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: calc(70 * var(--px));
+  text-align: left;
+}
+
+.formatIcon {
+  position: absolute;
+  top: calc(19 * var(--px));
+  left: calc(18 * var(--px));
+  width: calc(24 * var(--px));
+  height: calc(24 * var(--px));
+  color: #2b3236;
+}
+
+.formatTitle {
+  position: absolute;
+  top: calc(15 * var(--px));
+  left: calc(57 * var(--px));
+  color: #272d2f;
+  font-size: calc(16.5 * var(--px));
+  font-weight: 300;
+  font-variation-settings: var(--cut-text);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.formatDetail {
+  position: absolute;
+  top: calc(40 * var(--px));
+  left: calc(57 * var(--px));
+  color: #818283;
+  font-family: var(--font-mono);
+  font-size: calc(9.5 * var(--px));
+  letter-spacing: 0.16em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.radio {
+  position: absolute;
+  top: calc(19.5 * var(--px));
+  left: calc(471 * var(--px));
+  width: calc(24 * var(--px));
+  height: calc(24 * var(--px));
+  border: calc(2 * var(--px)) solid #f6a878;
+  border-radius: 50%;
+  transition: border-color 0.25s;
+}
+
+.radio::after {
+  content: '';
+  position: absolute;
+  inset: calc(4 * var(--px));
+  border-radius: 50%;
+  background: #f6a878;
+  transition:
+    background-color 0.25s,
+    transform 0.35s var(--ease);
+}
+
+.format[aria-checked='true'] .radio {
+  border-color: var(--orange);
+}
+
+.format[aria-checked='true'] .radio::after {
+  background: var(--orange);
+}
+
+.format:hover .formatTitle {
+  color: var(--orange);
+}
+
+/* ---------- Tablet / móvil ---------- */
+
+@media (max-width: 1099px) {
+  .cards {
+    position: relative;
+    top: auto;
+    left: auto;
+    order: 6;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    width: 100%;
+    max-width: 560px;
+    margin: 14px auto 0;
+  }
+
+  /* En móvil las tarjetas pasan a flujo normal y crecen con su contenido */
+  .card {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding-bottom: 20px;
+    border-radius: 20px;
+    box-shadow:
+      0 12px 28px rgb(30 40 50 / 0.07),
+      0 2px 6px rgb(30 40 50 / 0.03);
+  }
+
+  .head {
+    position: relative;
+    flex: none;
+    height: 84px;
+  }
+
+  .head::after {
+    left: 22px;
+    right: 22px;
+  }
+
+  .title {
+    top: 24px;
+    left: 22px;
+    font-size: 19px;
+  }
+
+  .detail {
+    top: 52px;
+    left: 22px;
+    font-size: 13.5px;
+  }
+
+  .expand {
+    top: 18px;
+    right: 18px;
+    width: 44px;
+    height: 44px;
+    border-radius: 13px;
+  }
+
+  .expand svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .drawing {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: auto;
+    height: auto;
+    margin: 16px 22px 0;
+  }
+
+  .resolution {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    height: 112px;
+    margin: 16px 22px 0;
+  }
+
+  .resCurrent {
+    width: 56%;
+    border-radius: 14px;
+  }
+
+  .chev {
+    top: 37px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .chev:first-child {
+    left: 6px;
+  }
+
+  .chev:last-child {
+    right: 6px;
+  }
+
+  .chev svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .resValue {
+    top: 26px;
+  }
+
+  .resValue strong {
+    font-size: 40px;
+  }
+
+  .resValue span,
+  .resOther span {
+    margin-top: 16px;
+    font-size: 10px;
+  }
+
+  .resOther {
+    top: 30px;
+    left: auto;
+    right: 0;
+    width: 40%;
+  }
+
+  .resOther strong {
+    font-size: 32px;
+  }
+
+  .formats {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    margin: 6px 22px 0;
+  }
+
+  .format {
+    height: 64px;
+  }
+
+  .formatIcon {
+    top: 18px;
+    left: 0;
+    width: 22px;
+    height: 22px;
+  }
+
+  .formatTitle {
+    top: 14px;
+    left: 38px;
+    font-size: 16px;
+  }
+
+  .formatDetail {
+    top: 38px;
+    left: 38px;
+    font-size: 9.5px;
+  }
+
+  .radio {
+    top: 18px;
+    left: auto;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    border-width: 2px;
+  }
+
+  .radio::after {
+    inset: 4px;
+  }
+}

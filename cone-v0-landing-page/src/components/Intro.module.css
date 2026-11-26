@@ -1,0 +1,72 @@
+/* 03 · Intro #intro — 1920 × 1018 px de diseño */
+
+.intro {
+  position: relative;
+  display: grid;
+  grid-template-columns: calc(936 * var(--px)) 1fr;
+  height: calc(1018 * var(--px));
+  margin: 0 var(--gutter);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.textCol {
+  display: flex;
+  align-items: center;
+  border-right: 1px solid var(--line);
+}
+
+.statement {
+  margin-top: calc(-4.5 * var(--px));
+  color: var(--ink);
+  font-size: calc(60 * var(--px));
+  font-weight: 400;
+  line-height: calc(71.5 * var(--px));
+  max-width: calc(700 * var(--px));
+}
+
+.muted {
+  color: #9aa1a6;
+}
+
+.imageCol {
+  position: relative;
+}
+
+.image {
+  position: absolute;
+  top: calc(188 * var(--px));
+  left: calc(1148 * var(--px) - 960 * var(--px));
+  width: calc(568 * var(--px));
+}
+
+@media (max-width: 1099px) {
+  .intro {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .textCol {
+    padding: 72px 0 56px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .statement {
+    margin: 0;
+    font-size: clamp(34px, 8.6vw, 56px);
+    line-height: 1.18;
+    max-width: 14em;
+  }
+
+  .imageCol {
+    display: grid;
+    place-items: center;
+    padding: 40px 0;
+  }
+
+  .image {
+    position: static;
+    width: min(78vw, 460px);
+  }
+}

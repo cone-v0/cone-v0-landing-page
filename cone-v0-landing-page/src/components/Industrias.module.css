@@ -1,0 +1,380 @@
+/* 05 · Industrias #industrias — 1920 × 1582 px de diseño */
+
+.industrias {
+  position: relative;
+  height: calc(1582 * var(--px));
+  margin: 0 var(--gutter);
+  border-top: 1px solid var(--line);
+}
+
+/* Línea a 200 px */
+.industrias::before {
+  content: '';
+  position: absolute;
+  top: calc(200 * var(--px));
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #d7d7d7;
+}
+
+.number {
+  top: calc(321 * var(--px) - 1px);
+  right: calc(1 * var(--px));
+}
+
+.title {
+  position: absolute;
+  top: calc(341 * var(--px));
+  left: calc(3 * var(--px));
+}
+
+/* ---------- Pestañas ---------- */
+
+.tabs {
+  position: absolute;
+  top: calc(626 * var(--px));
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: calc(49 * var(--px));
+  height: calc(91 * var(--px));
+  border-bottom: 1px solid #d6d7d7;
+}
+
+/* En la maqueta la pestaña activa es Light y las inactivas Regular */
+.tab {
+  position: relative;
+  height: calc(55 * var(--px));
+  color: var(--faint);
+  font-size: calc(55 * var(--px));
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    color 0.35s var(--ease),
+    font-weight 0.35s var(--ease);
+}
+
+.tab::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(62 * var(--px));
+  height: calc(3 * var(--px));
+  min-height: 2px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease);
+}
+
+.tab:hover {
+  color: #a9abad;
+}
+
+.tab[aria-selected='true'] {
+  color: var(--orange);
+  font-weight: 300;
+  letter-spacing: -0.0125em;
+}
+
+.tab[aria-selected='true']::after {
+  transform: none;
+}
+
+/* ---------- Panel ---------- */
+
+.panel {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.panel > * {
+  pointer-events: auto;
+}
+
+.copy {
+  position: absolute;
+  top: calc(782 * var(--px));
+  left: 0;
+  width: calc(840 * var(--px));
+  color: var(--ink-2);
+  font-size: calc(27 * var(--px));
+  font-weight: 350;
+  line-height: calc(32 * var(--px));
+  animation: fadeUp 0.6s var(--ease) both;
+}
+
+.copy p + p {
+  margin-top: calc(32 * var(--px));
+}
+
+.copy p:first-child {
+  max-width: calc(830 * var(--px));
+}
+
+.copy p:last-child {
+  max-width: calc(700 * var(--px));
+}
+
+.specs {
+  position: absolute;
+  top: calc(1144 * var(--px));
+  left: 0;
+  width: calc(780 * var(--px));
+  margin: 0;
+  animation: fadeUp 0.6s 0.06s var(--ease) both;
+}
+
+.specRow {
+  display: flex;
+  height: calc(82 * var(--px));
+  border-top: 1px solid #d7d7d7;
+  border-bottom: 1px solid #d6d6d6;
+}
+
+.specRow + .specRow {
+  margin-top: calc(24 * var(--px));
+}
+
+.specCell {
+  padding-top: calc(14.5 * var(--px));
+}
+
+.specCell:first-child {
+  width: calc(312 * var(--px));
+  border-right: 1px solid #a3a6a8;
+}
+
+.specCell:last-child {
+  padding-left: calc(8 * var(--px));
+  border-right: 1px solid #a3a6a8;
+}
+
+/* Anchos de la maqueta: cada campo cierra con una línea a distinta altura */
+.specRow:nth-child(1) .specCell:last-child {
+  width: calc(341 * var(--px));
+}
+
+.specRow:nth-child(2) .specCell:last-child {
+  width: calc(446 * var(--px));
+}
+
+.specRow:nth-child(3) .specCell:last-child {
+  width: calc(357 * var(--px));
+}
+
+.specCell dt {
+  color: var(--muted-2);
+  font-family: var(--font-mono);
+  font-size: calc(10.5 * var(--px));
+  letter-spacing: 0.12em;
+  line-height: 1;
+}
+
+.specCell dd {
+  margin: calc(9.5 * var(--px)) 0 0;
+  color: #4f5255;
+  font-size: calc(32 * var(--px));
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.004em;
+  white-space: nowrap;
+}
+
+/* Separador «·» */
+.sep {
+  margin: 0 0.04em;
+}
+
+.image {
+  position: absolute;
+  top: calc(811 * var(--px));
+  left: calc(1155 * var(--px));
+  width: calc(569 * var(--px));
+  animation: imageIn 0.9s var(--ease) both;
+}
+
+.image:not([data-id='cnc']) {
+  object-fit: contain;
+  height: calc(569 * var(--px));
+}
+
+.tags {
+  position: absolute;
+  top: calc(1462 * var(--px));
+  right: 0;
+  display: flex;
+  gap: calc(8 * var(--px));
+  animation: fadeUp 0.6s 0.12s var(--ease) both;
+}
+
+.tags li {
+  display: grid;
+  place-items: center;
+  height: calc(32 * var(--px));
+  padding: 0 calc(12.5 * var(--px));
+  border: 1px solid #3a3b3d;
+  border-radius: 999px;
+  color: #555658;
+  font-family: var(--font-mono);
+  font-size: calc(10.5 * var(--px));
+  letter-spacing: 0.12em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(calc(14 * var(--px)));
+  }
+}
+
+@keyframes imageIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) rotate(-4deg);
+  }
+}
+
+/* ---------- Tablet / móvil ---------- */
+
+@media (max-width: 1099px) {
+  .industrias {
+    height: auto;
+    padding: 120px 0 64px;
+  }
+
+  .industrias::before {
+    top: 56px;
+  }
+
+  .number {
+    top: 88px;
+    right: 0;
+  }
+
+  .title,
+  .tabs,
+  .panel,
+  .copy,
+  .specs,
+  .image,
+  .tags {
+    position: relative;
+    inset: auto;
+  }
+
+  .title {
+    margin-top: 32px;
+  }
+
+  .tabs {
+    gap: 26px;
+    height: auto;
+    margin: 32px calc(-1 * var(--gutter)) 0;
+    padding: 0 var(--gutter) 18px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab {
+    flex: none;
+    height: 40px;
+    font-size: 32px;
+  }
+
+  .tab::after {
+    top: 42px;
+    height: 2px;
+  }
+
+  .panel {
+    display: flex;
+    flex-direction: column;
+    pointer-events: auto;
+  }
+
+  .copy {
+    width: auto;
+    margin-top: 32px;
+    font-size: 19px;
+    line-height: 1.4;
+  }
+
+  .copy p + p {
+    margin-top: 16px;
+  }
+
+  .copy p:first-child,
+  .copy p:last-child {
+    max-width: none;
+  }
+
+  .image,
+  .image:not([data-id='cnc']) {
+    align-self: center;
+    width: min(76vw, 420px);
+    height: auto;
+    margin: 40px 0 24px;
+  }
+
+  .specs {
+    width: 100%;
+  }
+
+  .specRow {
+    height: auto;
+    padding-bottom: 14px;
+  }
+
+  .specRow + .specRow {
+    margin-top: 12px;
+  }
+
+  .specCell {
+    padding-top: 12px;
+  }
+
+  .specCell:first-child {
+    width: 44%;
+  }
+
+  .specRow .specCell:last-child {
+    flex: 1;
+    width: auto;
+    padding-left: 10px;
+    border-right: 0;
+  }
+
+  .specCell dt {
+    font-size: 9.5px;
+  }
+
+  .specCell dd {
+    margin-top: 10px;
+    font-size: 17px;
+    white-space: normal;
+    line-height: 1.25;
+  }
+
+  .tags {
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 28px;
+  }
+
+  .tags li {
+    height: 30px;
+    padding: 0 12px;
+    font-size: 10px;
+  }
+}

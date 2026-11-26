@@ -1,0 +1,83 @@
+/* Piezas compartidas entre secciones */
+
+.sectionNumber {
+  position: absolute;
+  right: calc(var(--gutter) + 1 * var(--px));
+  display: grid;
+  place-items: center;
+  width: calc(44 * var(--px));
+  height: calc(31 * var(--px));
+  border: 1px solid #3a3b3d;
+  border-radius: 999px;
+  color: #5d5e60;
+  font-family: var(--font-mono);
+  font-size: max(10px, calc(12 * var(--px)));
+  line-height: 1;
+}
+
+/* Título gigante de sección: Helvetica Neue Light */
+.displayTitle {
+  margin: 0;
+  color: var(--display);
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: calc(228 * var(--px));
+  line-height: 0.8;
+  letter-spacing: -0.007em;
+  white-space: nowrap;
+}
+
+/* Etiqueta técnica monoespaciada (■ TEXTO) */
+.monoLabel {
+  display: flex;
+  align-items: center;
+  gap: calc(8 * var(--px));
+  color: var(--muted-2);
+  font-family: var(--font-mono);
+  font-size: max(9px, calc(11 * var(--px)));
+  letter-spacing: 0.128em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.monoLabel::before {
+  content: '';
+  flex: none;
+  width: calc(4 * var(--px));
+  height: calc(4 * var(--px));
+  min-width: 3px;
+  min-height: 3px;
+  background: currentColor;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1099px) {
+  .sectionNumber {
+    width: 40px;
+    height: 28px;
+    font-size: 11px;
+  }
+
+  .displayTitle {
+    font-size: clamp(76px, 21vw, 150px);
+    line-height: 0.86;
+  }
+
+  .monoLabel {
+    gap: 8px;
+    font-size: 10px;
+    white-space: normal;
+    line-height: 1.5;
+  }
+
+  .monoLabel::before {
+    width: 4px;
+    height: 4px;
+  }
+}
